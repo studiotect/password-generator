@@ -31,14 +31,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-for (var i = passwordLength; i > 0; i--) {
-  while(loop){
-    function generatePassword () {
-    Math.floor(Math.random() * (max - min + 1) + min)
-    var password = password.push(Math.random)
-    }
-  }
-}
 generateBtn.addEventListener("click", writePassword);
 
 if (uppercaseTrue && lowercaseTrue && numericTrue && specialCharTrue) {                 //T, T, T, T
@@ -86,8 +78,19 @@ if (uppercaseTrue && lowercaseTrue && numericTrue && specialCharTrue) {         
   else if (!uppercaseTrue && lowercaseTrue && !numericTrue && !specialCharTrue) {         //F, T, F, F
     var charArray = [...lowercase];
   }
-  else (!uppercaseTrue && !lowercaseTrue && !numericTrue && !specialCharTrue) {         //F, F, F, F
-    return console.log("You did not select any characters");
+  else if(!uppercaseTrue && !lowercaseTrue && !numericTrue && !specialCharTrue) {         //F, F, F, F
+    prompt("You need to select at least one choice")
+  }
+  else {
+    prompt("Something went wrong, contact your web administrator");
+  }
+  for (var i = passwordLength; i > 0; i--) {
+    while(loop){
+      function generatePassword () {
+      Math.floor(Math.random() * (max - min + 1) + min)
+      var password = password.push(Math.random)
+      }
+    }
   }
 /*
 if (uppercaseTrue){
