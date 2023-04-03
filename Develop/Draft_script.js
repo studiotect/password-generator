@@ -1,9 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var numeric = ["1","2","3","4","5","6","7","8","9","0"]
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var uppercaseTrue
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var lowercaseTrue
+var numeric = ["1","2","3","4","5","6","7","8","9","0"]
+var numericTrue
 var specialChar = [" ","!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","^","_","`","{","|","}","~"];
+var specialCharTrue
 var password = [];
 
 function passwordLength (){
@@ -30,6 +34,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+}
+function generatePassword () {
+  Math.floor(Math.random() * (charArray.length-1 - 0 + 1) + 0)
+  var password = password.push(Math.random)
 }
 generateBtn.addEventListener("click", writePassword);
 
@@ -84,14 +92,14 @@ if (uppercaseTrue && lowercaseTrue && numericTrue && specialCharTrue) {         
   else {
     prompt("Something went wrong, contact your web administrator");
   }
-  for (var i = passwordLength; i > 0; i--) {
-    while(loop){
-      function generatePassword () {
-      Math.floor(Math.random() * (max - min + 1) + min)
-      var password = password.push(Math.random)
-      }
-    }
-  }
+//  for (var i = passwordLength; i > 0; i--) {
+//    while(loop){
+//      function generatePassword () {
+//      Math.floor(Math.random() * (max - min + 1) + min)
+//      var password = password.push(Math.random)
+//      }
+//    }
+//  }
 /*
 if (uppercaseTrue){
   var passwordChar = [...uppercase];
