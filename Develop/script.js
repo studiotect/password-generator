@@ -6,7 +6,7 @@ var lowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o
 var numericArray = ["0","1","2","3","4","5","6","7","8","9"];
 var specialArray = [" ","!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","^","_","`","{","|","}","~"];
 var length = 0
-var charIndex
+
 var passwordArray = []
 
 function writePassword() {
@@ -15,11 +15,16 @@ function writePassword() {
   passwordText.value = password;
 }
 function passwordLength (){
-  var passwordLength = prompt("How many characters do you want your password")
-  length = passwordLength
+  var passwordLength = prompt("How many characters do you want your password? Passwords must be between 8 and 128 characters.")
+  if (passwordLength > 7 || passwordLength < 129) {
+    length = passwordLength
+  }
+  else {
+    length = 8;
+  }
 }
+
 passwordLength();
-//Enables uppercase letters
 function uppercase(){
   var uppercaseAnsw = prompt("Do you want to use uppercase letters in your password? (Yes or No)")
   var uppercaseTrue = Boolean(uppercaseAnsw == "Yes")
@@ -29,7 +34,6 @@ function uppercase(){
 }
 uppercase();
 
-//function lowercase(){
 function lowercase(){
   var lowercaseAnsw = prompt("Do you want to use lowercase letters in your password? (Yes or No)")
   var lowercaseTrue = Boolean(lowercaseAnsw == "Yes")
@@ -58,29 +62,21 @@ function special(){
 special();
 
 
-function generatePassword () {
+function addACharacter () {
   var charIndex = Math.floor(Math.random() * (charArray.length-1 - 0 + 1) + 0)
-  passwordArray = passwordArray.push(charArray[charIndex])
   console.log(charArray)
-  moreChar();
-  password = passwordArray.join('');
+  return charArray[charIndex]
+}
+
+
+function generatePassword() {
+  var password = "";
+  console.log(length)
+  for (var i = length; i > 0; i--) {
+    password += addACharacter();
+  }
+  console.log(password)
   return password
 }
 
 generateBtn.addEventListener("click", writePassword);
-
-function moreChar() {
-  for (var i = passwordLength; i > 0; i--) {
-      generatePassword();
-    }
-  }
-
-
-//  Math.floor(Math.random() * (max - min + 1) + min)
-//      var password = password.push(Math.random)
-//      }
-//    }
-//  }
-
-
-//var password = password.push(Math.random)
